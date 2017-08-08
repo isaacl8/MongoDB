@@ -1,0 +1,15 @@
+.image{
+	height:25vh;
+}
+div{
+	border:1px solid black;
+	padding:2%;
+	display: inline-block;
+	vertical-align: middle;
+}
+a{
+	display:block;
+}
+.error{
+	color:red;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+</head>
+<body>
+	<h3>Login/Register</h3>
+	<form action="/users" method="POST">
+		<input type="name" name="name">
+		<input type="submit" value="Login">
+	</form>
+
+	<hr>
+
+	<h3>Post something</h3>
+	<form action="/posts" method="POST">
+		<input type="text" name="name">
+		<input type="text" name="content">
+		<input type="submit" value="Post">
+	</form>
+
+	<% for(let i = 0; i < posts.length; i++){%>
+		<div style="border: 1px solid green; margin:2px;">
+			<h4><%= posts[i].name %></h4>
+			<p><%= posts[i].content %></p>
+			<div style="border:2px solid red; margin-left:25px;">
+			<% for(let j = 0; j < posts[i].comments.length; j++){%>
+				<h4><%= posts[i].comments[j].name %></h4>
+				<p><%= posts[i].comments[j].comment %></p>
+			<% } %>
+			</div>
+			<form action="/comments/<%= posts[i]._id %>" method="POST">
+				<input type="text" name="name">
+				<input type="text" name="comment">
+				<input type="submit" value="Comment">
+			</form>
+		</div>
+	<%}%>
+
+</body>
+</html>

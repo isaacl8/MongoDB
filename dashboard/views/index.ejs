@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cars Index</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h2>Welcome to the Car Dashboard!</h2>
+	<% for(let i = 0; i < cars.length; i++){%>
+		<div>
+			<h3><%= cars[i].make %> <%= cars[i].model %></h3>
+			<p>Year: <%= cars[i].year %></p>
+			<% if(cars[i].image){ %>
+				<img class="image" src="<%= cars[i].image %>">
+			<%}%>
+			<a href="/cars/<%= cars[i]._id %>">View Car</a>
+			<a href="/cars/edit/<%= cars[i]._id %>">Edit Car</a>
+			<form action="/cars/destroy/<%= cars[i]._id %>" method="POST">
+				<input type="submit" value="Delete">
+			</form>
+		</div>
+	<% } %>
+	<a href="/cars/new">Create New Car</a>
+</body>
+</html>

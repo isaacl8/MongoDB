@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form method="POST", action="/users">
+		<input type="text" name="name">
+		<input type="number" name="age">
+		<input type="submit" value="Create User">
+	</form>
+
+	<% for(let i = 0; i< users.length; i++){%>
+		<p>Name: <a href="/<%= users[i]._id %> "><%= users[i].name %> </a>Age: <%= users[i].age %></p>
+	<%}%>
+</body>
+</html>
